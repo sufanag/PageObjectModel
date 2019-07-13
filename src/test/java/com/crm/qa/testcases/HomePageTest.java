@@ -33,10 +33,10 @@ public class HomePageTest extends TestBase{
 	  Assert.assertEquals("CRM", homePage.verifyHomeTitle(),"Title of page is as expected");
   }
   
-  @Test(priority=2)
+  /*@Test(priority=2)
   public void verifyName() {
 	  Assert.assertEquals("Sufana Gulshan", homePage.verifyName());
-  }
+  }*/
   
   @Test(priority=3)
   public void clickTasksLink() {
