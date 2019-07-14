@@ -13,6 +13,21 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.ContactsPageTest -->
+      <class name="com.crm.qa.testcases.LoginPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="loginTest"/>
+          <include name="loginPageTitle"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.LoginPageTest -->
+      <class name="com.crm.qa.testcases.HomePageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="clickTasksLink"/>
+          <include name="verifyHomeLink"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.HomePageTest -->
     </classes>
   </test> <!-- Free Crm test cases(failed) -->
 </suite> <!-- Failed suite [Free Crm application] -->

@@ -8,7 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.log4testng.Logger;
 
 import com.crm.qa.util.Util;
@@ -46,8 +48,16 @@ public class TestBase {
 			String browsername = prop.getProperty("browser");
 			if(browsername.equals("chrome")) {
 				
-				System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\drivers\\chromedriver_win32\\chromedriver.exe");
-				driver = new ChromeDriver();
+				System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\drivers\\Driver\\chromedriver.exe");
+				
+				ChromeOptions chromeOptions = new ChromeOptions();
+			      chromeOptions.setBinary("C:\\Users\\sufsa\\AppData\\Local\\Google\\Chrome SxS\\Application\\chrome.exe");
+			      chromeOptions.addArguments("--headless");
+
+			       driver = new ChromeDriver(chromeOptions);
+			      //Driver.navigate().to("https://ui.freecrm.com/");
+
+			     // WebDriverWait waitForUsername = new WebDriverWait(Driver, 5000);
 				
 				 log=Logger.getLogger(TestBase.class);
 			
@@ -61,7 +71,8 @@ public class TestBase {
 			driver.manage().deleteAllCookies();
 			driver.manage().timeouts().pageLoadTimeout(Util.IMPLICITWAIT, TimeUnit.SECONDS);
 			driver.manage().timeouts().implicitlyWait(Util.IMPLICITWAIT, TimeUnit.SECONDS);
-			driver.get(prop.getProperty("url"));
+			driver.navigate().to(prop.getProperty("url"));
+			System.out.println(driver.getTitle());
 			log.info("launching url");
 			
 		}
